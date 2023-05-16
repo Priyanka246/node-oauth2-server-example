@@ -23,7 +23,10 @@ app.get('/', authenticateRequest, function(req, res) {
 	res.send('Congratulations, you are in a secret area!');
 });
 
-app.listen(3000);
+app.listen(3000, function (err) {
+	if (err) console.log("Error in server setup")
+	console.log("Server listening on Port", 3000);
+})
 
 function obtainToken(req, res) {
 
