@@ -14,8 +14,8 @@ var config = {
 		redirectUris: []
 	}],
 	confidentialClients: [{
-		clientId: 'confidentialApplication',
-		clientSecret: 'topSecret',
+		clientId: 'opendialogue',
+		clientSecret: '7ioyKfO1zemsJfN',
 		grants: [
 			'password',
 			'client_credentials'
