@@ -3,6 +3,7 @@ var express = require('express'),
 	OAuth2Server = require('oauth2-server'),
 	Request = OAuth2Server.Request,
 	Response = OAuth2Server.Response;
+const path = require('path');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,9 +18,13 @@ app.oauth = new OAuth2Server({
 
 app.all('/oauth/token', obtainToken);
 
-app.get('/', authenticateRequest, function (req, res) {
+app.get('/test', authenticateRequest, function (req, res) {
 
 	res.send('Hello world!');
+});
+
+app.get('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 app.get('/opendialogue', authenticateRequest, function (req, res) {
